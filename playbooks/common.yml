@@ -1,16 +1,22 @@
-- name: Common configuration for all servers
-  hosts: all
-  become: true
+---
+- name: Update RHEL servers (web, db, nfs)
+  hosts: webservers, db, nfs
+  become: yes
   tasks:
-    - name: Update apt cache
+    - name: Ensure wireshark is installed
+      yum:
+        name: wireshark
+        state: latest
+
+- name: Update Ubuntu servers (LB)
+  hosts: lb
+  become: yes
+  tasks:
+    - name: Update apt repo
       apt:
         update_cache: yes
 
-    - name: Install common packages
+    - name: Ensure wireshark is installed
       apt:
-        name:
-          - vim
-          - curl
-          - git
-          - unzip
-        state: present
+        name: wireshark
+        state: latest
