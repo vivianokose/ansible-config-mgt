@@ -1,0 +1,16 @@
+- name: Common configuration for all servers
+  hosts: all
+  become: true
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Install common packages
+      apt:
+        name:
+          - vim
+          - curl
+          - git
+          - unzip
+        state: present
