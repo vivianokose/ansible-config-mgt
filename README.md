@@ -256,6 +256,5 @@ This project demonstrates a solid foundation in **Ansible-driven automation**, *
 =======
 Test webhook and it's functionality
 Testing artifact saving feature
-Another Testing on the artifact saving feature
-None of the previous tests went through due to some errors. so testing it again
+Testing save_artifacts job - Feb 2026
 >>>>>>> fef3b85 (Test Jenkins artifact saving)
