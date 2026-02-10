@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Ansible Configuration Management with Jenkins
 
 ## Project Overview
@@ -252,3 +253,7 @@ Cloud DevOps Engineer | Automation Enthusiast
 ## 🏁 Conclusion
 
 This project demonstrates a solid foundation in **Ansible-driven automation**, **CI/CD integration**, and **DevOps best practices**. It reflects real-world workflows and serves as a strong portfolio piece for junior-to-mid level DevOps roles.
+=======
+Test webhook and it's functionality
+Testing artifact saving feature
+>>>>>>> fef3b85 (Test Jenkins artifact saving)
