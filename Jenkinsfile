@@ -5,6 +5,8 @@ pipeline {
         REPO_URL = 'https://github.com/vivianokose/ansible-config-mgt.git'
         CREDENTIALS_ID = 'github-token'
         DEPLOY_DIR = '/var/www/html'
+        ANSIBLE_INVENTORY = 'inventory.ini'  // Change if your inventory file has a different name
+        ANSIBLE_PLAYBOOK = 'site.yml'        // Change if your main playbook has a different name
     }
 
     stages {
@@ -44,6 +46,21 @@ pipeline {
                 '''
             }
         }
+
+        stage('Run Ansible Playbook') {
+            steps {
+                echo "Running Ansible playbook..."
+                sh '''
+                # Install Ansible if not already installed
+                if ! command -v ansible-playbook &> /dev/null; then
+                    sudo apt update && sudo apt install -y ansible
+                fi
+
+                # Run the playbook
+                ansible-playbook -i ${ANSIBLE_INVENTORY} ${ANSIBLE_PLAYBOOK} --become
+                '''
+            }
+        }
     }
 
     post {
@@ -55,3 +72,4 @@ pipeline {
         }
     }
 }
+
